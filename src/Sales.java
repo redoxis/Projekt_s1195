@@ -1,3 +1,4 @@
+
 import java.util.GregorianCalendar;
 
 public class Sales 
@@ -7,7 +8,7 @@ public class Sales
 	private Person person;
 	private int cash;
 	
-	public GregorianCalendar getDate() {
+	public GregorianCalendar GregorianCalendar() {
 		return date;
 	}
 	public void setDate(GregorianCalendar date) {
