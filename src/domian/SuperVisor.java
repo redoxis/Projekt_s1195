@@ -1,8 +1,9 @@
+package domian;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SuperVisor 
+public class SuperVisor extends Entity
 {
 	public SuperVisor()
 	{

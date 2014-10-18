@@ -1,12 +1,21 @@
+package domian;
 
-public class Person 
+import java.util.ArrayList;
+import java.util.List;
+
+public class Person extends Entity
 {
+	public Person()
+	{
+		this.sales = new ArrayList<Sales>();
+	}
 
 	private String name;
 	private String surrname;
 	private String workplace;
 	private boolean active;
 	private SuperVisor supervisor;
+	private List<Sales> sales;
 	
 	
 	public String getName() {
@@ -38,6 +47,12 @@ public class Person
 	}
 	public void setSupervisor(SuperVisor supervisor) {
 		this.supervisor = supervisor;
+	}
+	public List<Sales> getSales() {
+		return sales;
+	}
+	public void setSales(List<Sales> sales) {
+		this.sales = sales;
 	}
 	
 }

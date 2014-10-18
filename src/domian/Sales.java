@@ -1,19 +1,13 @@
+package domian;
 
-import java.util.GregorianCalendar;
-
-public class Sales 
+public class Sales extends Entity
 {
-	private GregorianCalendar date = new GregorianCalendar();
+	private String date;
 	private int acc;
 	private Person person;
 	private int cash;
 	
-	public GregorianCalendar GregorianCalendar() {
-		return date;
-	}
-	public void setDate(GregorianCalendar date) {
-		this.date = date;
-	}
+
 	public int getAcc() {
 		return acc;
 	}
@@ -31,6 +25,12 @@ public class Sales
 	}
 	public void setCash(int cash) {
 		this.cash = cash;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	
