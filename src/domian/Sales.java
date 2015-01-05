@@ -1,8 +1,10 @@
 package domian;
 
-public class Sales
+import domian.Entity;
+
+public class Sales extends Entity
 {
-	private int id;
+
 	private String date;
 	private int acc;
 	private Person person;
@@ -33,12 +35,7 @@ public class Sales
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	
 	
 }

@@ -2,14 +2,16 @@ package domian;
 import java.util.ArrayList;
 import java.util.List;
 
+import domian.Entity;
 
-public class SuperVisor
+
+public class SuperVisor extends Entity
 {
 	public SuperVisor()
 	{
 		this.person = new ArrayList<Person>();
 	}
-	private int id;
+
 	private String name;
 	private String surrname;
 	private boolean active;
@@ -40,12 +42,7 @@ public class SuperVisor
 	public void setOsoby(List<Person> osoby) {
 		this.person = osoby;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public List<Person> getPerson() {
 		return person;
 	}
