@@ -6,17 +6,12 @@ import domian.*;
 
 public class DummyDb {
 
-	public List<Person> persons;
-	public List<Sales> sales;
-	public List<SuperVisor> superVisor;
-	public List<Role> roles;
+
+	public List<Person> persons = new ArrayList<Person>();
+	public List<Sales> sales = new ArrayList<Sales>();
+	public List<Role> roles =new ArrayList<Role>();
+	public List<Privilege> privilege =new ArrayList<Privilege>();
+	public List<SuperVisor> superVisor = new ArrayList<SuperVisor>();
 	
-	public DummyDb()
-	{
-		persons = new ArrayList<Person>();
-		sales = new ArrayList<Sales>();
-		roles =new ArrayList<Role>();
-		superVisor = new ArrayList<SuperVisor>();
-	}
 	
 }

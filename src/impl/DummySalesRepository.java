@@ -3,10 +3,10 @@ package impl;
 import java.util.List;
 
 import domian.*;
-import repositories.ISalesRepository;
+import repositories.*;
 
 
-public class DummySalesRepository implements ISalesRepository {
+public class DummySalesRepository implements IRepository<Sales> {
 
 	private DummyDb db;
 	
@@ -63,37 +63,6 @@ public class DummySalesRepository implements ISalesRepository {
 	}
 
 
-	@Override
-	public List<Sales> withACC(int acc) 
-	{
-		
-		return null;
-	}
 
-
-	@Override
-	public List<Sales> withPerson(String name) 
-	{
-	Person person =null;
-	for(Person p: db.persons)
-	{
-		if(p.getName()==name)
-		{
-			person=p;
-			break;
-		}
-	}
-	if(person==null)
-	
-		return null;
-	return person.getSales();
-	}
-
-
-	@Override
-	public List<Person> withPersonID(int personId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
 	

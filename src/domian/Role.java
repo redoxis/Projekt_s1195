@@ -3,17 +3,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Role extends Entity {
+public class Role
+{
 	public Role()
 	{
 		person = new ArrayList<Person>();
 		privileges = new ArrayList<Privilege>();
 	}
-	
+	private int id;
 	private String name;
 	private List<Person> person;
 	private List<Privilege> privileges;
 
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

@@ -3,13 +3,13 @@ package domian;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person extends Entity
+public class Person
 {
 	public Person()
 	{
 		this.sales = new ArrayList<Sales>();
 	}
-
+	private int id;
 	private String name;
 	private String surrname;
 	private String workplace;
@@ -54,5 +54,10 @@ public class Person extends Entity
 	public void setSales(List<Sales> sales) {
 		this.sales = sales;
 	}
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 }

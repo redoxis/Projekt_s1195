@@ -3,10 +3,11 @@ package impl;
 import java.util.List;
 
 import domian.*;
-import repositories.IPersonRepository;
+import repositories.*;
 
 
-public class DummyPersonRepository implements IPersonRepository {
+
+public class DummyPersonRepository implements IRepository<Person> {
 
 	private DummyDb db;
 	
@@ -16,82 +17,30 @@ public class DummyPersonRepository implements IPersonRepository {
 		super();
 		this.db =db;
 	}
-	@Override
-	public Person get(int id) {
-		for(Person p : db.persons)
-		{
-			if(p.getId()==id)
-				return p;
-		}
-		return null;
-	}
-
-	@Override
-	public List<Person> getAll() {
-		return db.persons;
-	}
-
-	@Override
 	public void add(Person entity) {
 		db.persons.add(entity);
+	}
+	
+	public void update(Person entity) 
+	{
+		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
 	public void delete(Person entity) 
 	{
 		db.persons.remove(entity);
-		
 	}
-
-	@Override
-	public void update(Person entity) 
-	{
 	
-			
-	}
-
-
-	public List<Person> withRole(Role role) 
+	public Person get(int id) 
 	{
-		return withRole(role.getId());
+		for(Person person : db.persons)
+			if(person.getId()==id)
+				return person;
+		return null;
 	}
-
-	@Override
-	public List<Person> withRole(String roleName) 
+	public List<Person> getAll() 
 	{
-	Role role = null;
-		for(Role r: db.roles)
-		{
-			if(r.getName().equalsIgnoreCase(roleName))
-			{
-				role = r;
-				break;
-			}
-			
-		}
-		if(role==null)
-			return null;
-			return role.getPerson();
-		
-	}
 
-	@Override
-	public List<Person> withRole(int roleId) 
-	{
-		Role role = null;
-		for(Role r: db.roles)
-		{
-			if(r.getId()==roleId)
-			{
-				role =r;
-				break;
-			}
-		}
-		if(role==null) 
-			return null;
-			return role.getPerson();
-		
+		return db.persons;
 	}
-
 }

@@ -3,13 +3,14 @@ package domian;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Privilege extends Entity  {
-
+public class Privilege 
+{
 	public Privilege()
 	{
 		roles = new ArrayList<Role>();
 	}
-	
+	private int id;
+
 	private String name;
 	private List<Role> roles;
 	public String getName() {
@@ -24,6 +25,11 @@ public class Privilege extends Entity  {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 }

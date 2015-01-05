@@ -1,11 +1,12 @@
 package impl;
 
 import domian.*;
-
 import repositories.*;
 
+
 public class DummyRepositoryCatalog implements IRepositoryCatalog{
-	private DummyDb db;
+	
+	DummyDb db = new DummyDb();
 	
 	@Override
 	public IRepository<Person> getPersons() 
