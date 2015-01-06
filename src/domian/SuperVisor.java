@@ -11,7 +11,14 @@ public class SuperVisor extends Entity
 	{
 		this.person = new ArrayList<Person>();
 	}
-
+	public SuperVisor(String name, String surrname)
+	{
+		this.person = new ArrayList<Person>();
+		this.name = name;
+		this.surrname = surrname;
+		
+	}
+	
 	private String name;
 	private String surrname;
 	private boolean active;

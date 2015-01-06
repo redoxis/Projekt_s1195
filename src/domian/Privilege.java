@@ -11,7 +11,11 @@ public class Privilege extends Entity
 	{
 		roles = new ArrayList<Role>();
 	}
-
+	public Privilege(String name)
+	{
+		roles = new ArrayList<Role>();
+		this.name = name;
+	}
 
 	private String name;
 	private List<Role> roles;

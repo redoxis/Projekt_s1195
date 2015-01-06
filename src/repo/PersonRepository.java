@@ -9,16 +9,17 @@ import java.util.List;
 
 import domian.*;
 import repositories.*;
+import unitofwork.IUnitOfWork;
 
 public class PersonRepository extends Repository<Person> implements IPersonRepository
 {
 
-	protected PersonRepository(Connection connection, IEntityBuilder<Person> builder) {
-		super(connection, builder);
+	public PersonRepository(Connection connection, IEntityBuilder<Person> builder, IUnitOfWork uow) {
+		super(connection, builder, uow);
 	}
 
 	@Override
-	protected void setUpUpdateQuery(Person entity) throws SQLException {
+	public void setUpUpdateQuery(Person entity) throws SQLException {
 		update.setInt(1, entity.getId());
 		update.setString(2, entity.getName());
 		update.setString(3, entity.getSurrname());
@@ -27,7 +28,7 @@ public class PersonRepository extends Repository<Person> implements IPersonRepos
 	}
 
 	@Override
-	protected void setUpInsertQuery(Person entity) throws SQLException {	
+	public void setUpInsertQuery(Person entity) throws SQLException {	
 		insert.setString(1, entity.getName());
 		insert.setString(2, entity.getSurrname());
 		
@@ -39,12 +40,12 @@ public class PersonRepository extends Repository<Person> implements IPersonRepos
 	}
 
 	@Override
-	protected String getInsertQuery() {
+	public String getInsertQuery() {
 		return "INSERT INTO person(name,surrname,workplace) values(?,?,?)";
 	}
 
 	@Override
-	protected String getUpdateQuery() {
+	public String getUpdateQuery() {
 		return "update person set (name,surrname,workplace)=(?,?,?) where id=?";
 	}
 
@@ -65,5 +66,30 @@ public class PersonRepository extends Repository<Person> implements IPersonRepos
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	protected void setUpUpdate(Person entity) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void setUpInsert(Person entity) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected String getUpdate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected String getInsert() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

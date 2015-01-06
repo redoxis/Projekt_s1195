@@ -12,6 +12,12 @@ public class Role extends Entity
 		person = new ArrayList<Person>();
 		privileges = new ArrayList<Privilege>();
 	}
+	public Role(String name)
+	{
+		person = new ArrayList<Person>();
+		privileges = new ArrayList<Privilege>();
+		this.name = name;
+	}
 	
 	private String name;
 	private List<Person> person;

@@ -9,16 +9,17 @@ import java.util.List;
 
 import domian.*;
 import repositories.*;
+import unitofwork.IUnitOfWork;
 
 public class RoleRepository extends Repository<Role> implements IRoleRepository
 {
 
-	protected RoleRepository(Connection connection, IEntityBuilder<Role> builder) {
-		super(connection, builder);
+	protected RoleRepository(Connection connection, IEntityBuilder<Role> builder, IUnitOfWork uow) {
+		super(connection, builder, uow);
 	}
 
 	@Override
-	protected void setUpUpdateQuery(Role entity) throws SQLException {
+	public void setUpUpdateQuery(Role entity) throws SQLException {
 		update.setInt(1, entity.getId());
 		update.setString(2, entity.getName());
 	
@@ -26,7 +27,7 @@ public class RoleRepository extends Repository<Role> implements IRoleRepository
 	}
 
 	@Override
-	protected void setUpInsertQuery(Role entity) throws SQLException {	
+	public void setUpInsertQuery(Role entity) throws SQLException {	
 		insert.setString(1, entity.getName());
 		
 		
@@ -38,12 +39,12 @@ public class RoleRepository extends Repository<Role> implements IRoleRepository
 	}
 
 	@Override
-	protected String getInsertQuery() {
+	public String getInsertQuery() {
 		return "INSERT INTO role(name) values(?)";
 	}
 
 	@Override
-	protected String getUpdateQuery() {
+	public String getUpdateQuery() {
 		return "update role set (name)=(?) where id=?";
 	}
 
@@ -55,6 +56,30 @@ public class RoleRepository extends Repository<Role> implements IRoleRepository
 
 	@Override
 	public List<Person> withRole(int roleId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected void setUpUpdate(Role entity) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void setUpInsert(Role entity) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected String getUpdate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected String getInsert() {
 		// TODO Auto-generated method stub
 		return null;
 	}

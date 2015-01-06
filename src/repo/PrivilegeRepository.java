@@ -9,16 +9,17 @@ import java.util.List;
 
 import domian.*;
 import repositories.*;
+import unitofwork.IUnitOfWork;
 
 public class PrivilegeRepository extends Repository<Privilege> implements IPrivilegeRepository
 {
 
-	protected PrivilegeRepository(Connection connection, IEntityBuilder<Privilege> builder) {
-		super(connection, builder);
+	public PrivilegeRepository(Connection connection, IEntityBuilder<Privilege> builder,  IUnitOfWork uow) {
+		super(connection, builder, uow);
 	}
 
 	@Override
-	protected void setUpUpdateQuery(Privilege entity) throws SQLException {
+	public void setUpUpdateQuery(Privilege entity) throws SQLException {
 		update.setInt(1, entity.getId());
 		update.setString(2, entity.getName());
 	
@@ -26,7 +27,7 @@ public class PrivilegeRepository extends Repository<Privilege> implements IPrivi
 	}
 
 	@Override
-	protected void setUpInsertQuery(Privilege entity) throws SQLException {	
+	public void setUpInsertQuery(Privilege entity) throws SQLException {	
 		insert.setString(1, entity.getName());
 		
 		
@@ -38,12 +39,12 @@ public class PrivilegeRepository extends Repository<Privilege> implements IPrivi
 	}
 
 	@Override
-	protected String getInsertQuery() {
+	public String getInsertQuery() {
 		return "INSERT INTO privilege(name) values(?)";
 	}
 
 	@Override
-	protected String getUpdateQuery() {
+	public String getUpdateQuery() {
 		return "update privilege set (name)=(?) where id=?";
 	}
 
@@ -55,6 +56,30 @@ public class PrivilegeRepository extends Repository<Privilege> implements IPrivi
 
 	@Override
 	public List<Privilege> withPrivilege(int privilegeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected void setUpUpdate(Privilege entity) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void setUpInsert(Privilege entity) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected String getUpdate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected String getInsert() {
 		// TODO Auto-generated method stub
 		return null;
 	}

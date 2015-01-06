@@ -10,7 +10,16 @@ public class Person extends Entity
 	public Person()
 	{
 		this.sales = new ArrayList<Sales>();
+		
 	}
+	public Person(String name, String surrname)
+	{
+		this.sales = new ArrayList<Sales>();
+		this.name = name;
+		this.surrname = surrname;
+		
+	}
+	
 	
 	private String name;
 	private String surrname;

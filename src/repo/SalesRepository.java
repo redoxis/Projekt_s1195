@@ -9,16 +9,17 @@ import java.util.List;
 
 import domian.*;
 import repositories.*;
+import unitofwork.IUnitOfWork;
 
 public class SalesRepository extends Repository<Sales> implements ISalesRepository
 {
 
-	protected SalesRepository(Connection connection, IEntityBuilder<Sales> builder) {
-		super(connection, builder);
+	public SalesRepository(Connection connection, IEntityBuilder<Sales> builder, IUnitOfWork uow) {
+		super(connection, builder, uow);
 	}
 
 	@Override
-	protected void setUpUpdateQuery(Sales entity) throws SQLException {
+	public void setUpUpdateQuery(Sales entity) throws SQLException {
 		update.setInt(1, entity.getId());
 		update.setString(2, entity.getDate());
 		update.setInt(3, entity.getAcc());
@@ -27,7 +28,7 @@ public class SalesRepository extends Repository<Sales> implements ISalesReposito
 	}
 
 	@Override
-	protected void setUpInsertQuery(Sales entity) throws SQLException {	
+	public void setUpInsertQuery(Sales entity) throws SQLException {	
 		insert.setString(1, entity.getDate());
 		insert.setInt(2, entity.getAcc());
 		insert.setInt(3, entity.getCash());
@@ -39,12 +40,12 @@ public class SalesRepository extends Repository<Sales> implements ISalesReposito
 	}
 
 	@Override
-	protected String getInsertQuery() {
+	public String getInsertQuery() {
 		return "INSERT INTO sales(date,acc,cash) values(?,?,?)";
 	}
 
 	@Override
-	protected String getUpdateQuery() {
+	public String getUpdateQuery() {
 		return "update sales set (date,acc,cash)=(?,?,?) where id=?";
 	}
 
@@ -62,6 +63,32 @@ public class SalesRepository extends Repository<Sales> implements ISalesReposito
 
 	@Override
 	public List<Sales> withPerson(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	protected void setUpUpdate(Sales entity) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void setUpInsert(Sales entity) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected String getUpdate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected String getInsert() {
 		// TODO Auto-generated method stub
 		return null;
 	}

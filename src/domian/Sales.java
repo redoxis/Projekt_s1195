@@ -4,7 +4,17 @@ import domian.Entity;
 
 public class Sales extends Entity
 {
-
+	public Sales()
+	{
+		super();
+	}
+	public Sales(String date, int acc, int cash)
+	{
+		this.date = date;
+		this.acc = acc;
+		this.cash = cash;
+		
+	}
 	private String date;
 	private int acc;
 	private Person person;
